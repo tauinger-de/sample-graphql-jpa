@@ -1,0 +1,32 @@
+<server description="Sample Liberty server">
+
+  <featureManager>
+    <feature>cdi-2.0</feature>
+    <feature>jpa-2.2</feature>
+    <feature>mpGraphQL-1.0</feature>
+  </featureManager>
+
+  <variable name="default.http.port" defaultValue="9080"/>
+  <variable name="default.https.port" defaultValue="9443"/>
+
+  <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
+    id="defaultHttpEndpoint" host="*" />
+
+  <application location="CarDealership.war" context-root="/CarDealership">
+  </application>
+
+  <variable name="io.openliberty.enableGraphQLUI" value="true" />
+  
+  <!-- Derby Library Configuration -->    
+  <library id="derbyJDBCLib">
+      <file name="${shared.resource.dir}/derby-10.14.2.0.jar" />
+  </library>
+
+  <!-- Datasource Configuration -->
+  <dataSource id="carjpadatasource"
+              jndiName="jdbc/carjpadatasource">
+      <jdbcDriver libraryRef="derbyJDBCLib" />
+      <properties.derby.embedded databaseName="CarDB" createDatabase="create"/>
+  </dataSource>
+
+</server>

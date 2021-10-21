@@ -1,0 +1,14 @@
+target/
+bin/
+
+.classpath
+.factorypath
+.project
+.settings/
+.apt_generated/
+
+# MacOS system files
+.DS_Store
+
+# Asciidoc rendered
+README.html
