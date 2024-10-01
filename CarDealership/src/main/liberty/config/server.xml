@@ -1,9 +1,9 @@
 <server description="Sample Liberty server">
 
   <featureManager>
-    <feature>cdi-2.0</feature>
-    <feature>jpa-2.2</feature>
-    <feature>mpGraphQL-1.0</feature>
+    <feature>cdi-4.0</feature>
+    <feature>persistence-3.1</feature>
+    <feature>mpGraphQL-2.0</feature>
   </featureManager>
 
   <variable name="default.http.port" defaultValue="9080"/>
