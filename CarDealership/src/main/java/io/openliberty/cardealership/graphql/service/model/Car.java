@@ -8,6 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 import org.eclipse.microprofile.graphql.Enum;
 import org.eclipse.microprofile.graphql.Ignore;
 import org.eclipse.microprofile.graphql.Name;
@@ -27,6 +29,7 @@ public class Car {
 	private String vin;
 
 	@Column(name = "make")
+	@NotEmpty
 	private String make;
 
 	@Column(name = "model")
@@ -37,6 +40,7 @@ public class Car {
 
 	@Name("year")
 	@Column(name = "modelYear") // "year" is a keyword in SQL
+	@Min(1900)
 	private int year;
 
 	@Column(name = "doors")
